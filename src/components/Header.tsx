@@ -1,5 +1,4 @@
 import { SITE } from "@/data/site";
-import { Mark } from "./Mark";
 
 const nav = [
   { href: "#work", label: "Work" },
@@ -15,9 +14,13 @@ export function Header() {
           href="#top"
           className="flex items-center gap-2.5 text-sm tracking-tight text-[var(--foreground)]"
         >
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border)] text-[var(--accent)]">
-            <Mark className="h-4 w-4" />
-          </span>
+          <img
+            src={SITE.avatar}
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-full border border-[var(--border)] object-cover object-[center_18%]"
+          />
           <span className="hidden sm:inline">{SITE.name}</span>
           <span className="sm:hidden">{SITE.shortName}</span>
         </a>

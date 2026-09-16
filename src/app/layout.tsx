@@ -27,6 +27,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rakesh-jadhav.vercel.app"),
   title: {
     default: `${SITE.name} — ${SITE.title}`,
     template: `%s · ${SITE.name}`,
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
     description: `${SITE.title} in ${SITE.location}. ${SITE.tagline}`,
     type: "website",
     locale: "en_IN",
+    images: [{ url: SITE.avatar, alt: SITE.name }],
   },
 };
 

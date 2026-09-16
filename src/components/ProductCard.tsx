@@ -39,9 +39,32 @@ export function ProductCard({
       <h3 className="mt-2 font-serif text-2xl leading-tight text-[var(--foreground)]">
         {product.name}
       </h3>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--muted)]">
+      <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
         {product.blurb}
       </p>
+      <div className="mt-5">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">
+          Stack
+        </p>
+        <ul className="mt-2 flex flex-wrap gap-1.5">
+          {product.stack.map((item) => (
+            <li
+              key={item}
+              className="border border-[var(--border)] px-2 py-0.5 text-[11px] text-[var(--foreground)]"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-5 flex-1">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">
+          What I built
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+          {product.built}
+        </p>
+      </div>
       <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
         {product.links.map((link) => (
           <li key={link.href}>

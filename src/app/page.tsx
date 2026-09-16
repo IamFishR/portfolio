@@ -14,12 +14,23 @@ export default function HomePage() {
   return (
     <div id="top" className="mx-auto max-w-5xl px-5 sm:px-8">
       <section className="relative pb-20 pt-16 sm:pb-28 sm:pt-24">
-        <p className="text-xs uppercase tracking-[0.22em] text-[var(--accent)]">
-          {SITE.title} · {SITE.location}
-        </p>
-        <h1 className="font-serif mt-5 max-w-3xl text-5xl leading-[1.05] text-[var(--foreground)] sm:text-7xl">
-          {SITE.name}
-        </h1>
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:gap-10">
+          <img
+            src={SITE.avatar}
+            alt={SITE.name}
+            width={160}
+            height={160}
+            className="h-28 w-28 shrink-0 rounded-full border border-[var(--border)] object-cover object-[center_18%] sm:h-36 sm:w-36"
+          />
+          <div>
+            <p className="text-xs uppercase tracking-[0.22em] text-[var(--accent)]">
+              {SITE.title} · {SITE.location}
+            </p>
+            <h1 className="font-serif mt-5 max-w-3xl text-5xl leading-[1.05] text-[var(--foreground)] sm:text-7xl">
+              {SITE.name}
+            </h1>
+          </div>
+        </div>
         <p className="mt-7 max-w-xl text-lg leading-relaxed text-[var(--muted)]">
           {SITE.tagline}
         </p>

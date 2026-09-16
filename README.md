@@ -1,6 +1,6 @@
 # Rakesh Jadhav — portfolio
 
-Personal site for **Rakesh Jadhav** (`IamFishR`), Senior Software Engineer in Hyderabad.
+Personal site for **Rakesh Jadhav** (`IamFishR`), UI Developer in Hyderabad.
 
 Replaces the retired Glitch page (`thisisrakesh.glitch.me`).
 
@@ -21,6 +21,6 @@ npm run build   # writes ./out
 
 ## Add a product
 
-Edit `src/data/products.ts` and append to `PRODUCTS`. Each card needs `slug`, `name`, `kind`, `blurb`, `status` (`live` | `open-testing` | `wip` | `github`), and `links`.
+Edit `src/data/products.ts` and append to `PRODUCTS`. Each card needs `slug`, `name`, `kind`, `blurb`, `stack`, `built`, `status` (`live` | `open-testing` | `wip` | `github`), and `links`.
 
 Profile copy lives in `src/data/site.ts`.
