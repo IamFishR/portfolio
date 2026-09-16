@@ -118,10 +118,9 @@ export const PRODUCTS: Product[] = [
     name: "webcrecorder",
     kind: "Web app",
     blurb:
-      "Browser recording studio — camera, mic, and screen with picture-in-picture. Recordings stay in a local gallery.",
-    status: "live",
+      "Browser recording studio — camera, mic, and screen with picture-in-picture. Recordings stay in a local gallery. Previous Vercel deploy is gone; GitHub is the source.",
+    status: "github",
     links: [
-      { label: "Site", href: "https://webcrecorder.vercel.app" },
       { label: "GitHub", href: "https://github.com/IamFishR/webcrecorder" },
     ],
   },
