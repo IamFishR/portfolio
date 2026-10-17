@@ -10,6 +10,7 @@ const statusClass: Record<ProductStatus, string> = {
   "open-testing": "border-[var(--border)] text-[var(--foreground)]",
   wip: "border-[var(--border)] text-[var(--muted)]",
   github: "border-[var(--border)] text-[var(--muted)]",
+  private: "border-[var(--border)] text-[var(--muted)]",
 };
 
 export function ProductCard({
@@ -65,21 +66,23 @@ export function ProductCard({
           {product.built}
         </p>
       </div>
-      <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
-        {product.links.map((link) => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1 text-sm text-[var(--foreground)] underline-offset-4 hover:text-[var(--accent)] hover:underline"
-            >
-              {link.label}
-              <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-            </a>
-          </li>
-        ))}
-      </ul>
+      {product.links.length > 0 && (
+        <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+          {product.links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-sm text-[var(--foreground)] underline-offset-4 hover:text-[var(--accent)] hover:underline"
+              >
+                {link.label}
+                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </article>
   );
 }

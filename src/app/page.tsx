@@ -8,6 +8,7 @@ const contact = [
   { label: "GitHub", href: SITE.links.github, text: SITE.handle },
   { label: "LinkedIn", href: SITE.links.linkedin, text: "thisisfish" },
   { label: "X", href: SITE.links.x, text: "@after_myth" },
+  { label: "Nomads", href: SITE.links.nomads, text: "@thisisfish" },
 ];
 
 export default function HomePage() {
@@ -24,7 +25,7 @@ export default function HomePage() {
           />
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-[var(--accent)]">
-              {SITE.title} · {SITE.location}
+              {SITE.eyebrow}
             </p>
             <h1 className="font-serif mt-5 max-w-3xl text-5xl leading-[1.05] text-[var(--foreground)] sm:text-7xl">
               {SITE.name}
@@ -91,6 +92,62 @@ export default function HomePage() {
       </section>
 
       <section
+        id="experience"
+        className="scroll-mt-24 border-t border-[var(--border)] py-16 sm:py-20"
+      >
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
+          Experience
+        </h2>
+        <ol className="mt-10 grid gap-10">
+          {SITE.experience.map((job) => (
+            <li key={`${job.company}-${job.period}`}>
+              <p className="text-[var(--foreground)]">
+                {job.role} · {job.company}
+              </p>
+              <p className="mt-1 text-sm text-[var(--muted)]">
+                {job.period} · {job.location}
+              </p>
+              {job.points.length > 0 && (
+                <ul className="mt-4 max-w-xl list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--muted)]">
+                  {job.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section
+        id="skills"
+        className="scroll-mt-24 border-t border-[var(--border)] py-16 sm:py-20"
+      >
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
+          Skills
+        </h2>
+        <div className="mt-10 grid gap-8">
+          {SITE.skills.map((group) => (
+            <div key={group.group}>
+              <p className="text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">
+                {group.group}
+              </p>
+              <ul className="mt-2 flex flex-wrap gap-1.5">
+                {group.items.map((item) => (
+                  <li
+                    key={item}
+                    className="border border-[var(--border)] px-2 py-0.5 text-[11px] text-[var(--foreground)]"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section
         id="work"
         className="scroll-mt-24 border-t border-[var(--border)] py-16 sm:py-20"
       >
@@ -100,12 +157,12 @@ export default function HomePage() {
               Products
             </h2>
             <p className="font-serif mt-3 text-3xl sm:text-4xl">
-              Things I have shipped
+              Things I've built
             </p>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-[var(--muted)]">
-            {PRODUCTS.length} cards. Status is honest: live store listings,
-            open testing, GitHub, or still a WIP.
+            Each card says where it stands: live in a store, on GitHub, or
+            still a work in progress.
           </p>
         </div>
         <div className="mt-12 grid gap-4 sm:grid-cols-2">

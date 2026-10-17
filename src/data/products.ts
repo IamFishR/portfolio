@@ -1,13 +1,13 @@
 /**
  * Product cards on the homepage.
  * To add a product later: append an object to PRODUCTS and rebuild.
- * status: "live" | "open-testing" | "wip" | "github"
+ * status: "live" | "open-testing" | "wip" | "github" | "private"
  *
  * Copy is pulled from public READMEs / product sites where possible.
  * Private repos are used only when this machine can read them; do not invent metrics.
  */
 
-export type ProductStatus = "live" | "open-testing" | "wip" | "github";
+export type ProductStatus = "live" | "open-testing" | "wip" | "github" | "private";
 
 export type ProductLink = {
   label: string;
@@ -29,9 +29,10 @@ export type Product = {
 
 export const STATUS_LABEL: Record<ProductStatus, string> = {
   live: "Live",
-  "open-testing": "Open testing",
+  "open-testing": "Open-testing",
   wip: "WIP",
   github: "GitHub",
+  private: "Source private",
 };
 
 export const PRODUCTS: Product[] = [
@@ -66,7 +67,7 @@ export const PRODUCTS: Product[] = [
     name: "InFlow",
     kind: "Android",
     blurb:
-      "A private second brain. Notes, links, photos, voice, and tasks on-device, with optional Google Drive backup. Play listing may 404 until it is public.",
+      "A private second brain. Notes, links, photos, voice, and tasks on-device, with optional Google Drive backup.",
     stack: [
       "Kotlin",
       "Jetpack Compose",
@@ -77,13 +78,13 @@ export const PRODUCTS: Product[] = [
       "Media3",
     ],
     built:
-      "I wanted a vault that works offline and treats Drive as backup, not a product cloud. The app writes a versioned JSON vault (schema 7, soft delete) to app-private storage; Google sign-in is optional and uses drive.file under InFlow/inflow-db.json plus attachments. Home is a share-target composer (text, links, photo, voice, files). If the device and Drive both changed, it asks which copy to keep. Compose UI is screenshot-tested with Roborazzi.",
-    status: "open-testing",
+      "I wanted a vault that works offline and treats Drive as backup, not a product cloud. The app writes a versioned JSON vault (with soft delete) to app-private storage; Google sign-in is optional and uses drive.file under InFlow/inflow-db.json plus attachments. Home is a share-target composer (text, links, photo, voice, files). If the device and Drive both changed, it asks which copy to keep. Compose UI is screenshot-tested with Roborazzi.",
+    status: "live",
     links: [
       { label: "Site", href: "https://inflow-vault.vercel.app" },
       {
-        label: "Play open testing",
-        href: "https://play.google.com/apps/testing/com.inflow.vault",
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.inflow.vault",
       },
     ],
   },
@@ -92,7 +93,7 @@ export const PRODUCTS: Product[] = [
     name: "Telegram Agent Console",
     kind: "VS Code extension",
     blurb:
-      "A side panel for chatting with one Telegram bot — typically the agent on your machine. Read, reply, slash-command typeahead. Own site later; GitHub for now.",
+      "A side panel for chatting with one Telegram bot, usually the agent on your machine. Read, reply, slash-command typeahead. On GitHub and the VS Code Marketplace.",
     stack: [
       "TypeScript",
       "VS Code Webview",
@@ -139,13 +140,13 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "mindful-work",
-    name: "Mindful Work",
+    name: "MindfulWork",
     kind: "Android",
     blurb:
-      "A calmer launcher for focused work. List-based app menu, usage insights, and limits — less visual noise, more intention.",
-    stack: ["Android"],
+      "A calm Android home launcher: a plain list of the apps you choose, screen-time insights, and per-app limits. Fully offline.",
+    stack: ["Kotlin", "Jetpack Compose", "Room"],
     built:
-      "Play listing: a list-based home without app icons, usage tracking, and per-app limits so the screen stays quieter. No public source repo turned up for this package (com.app.mindfulwork), so the stack stops at Android. Last Play update: 13 Sep 2023.",
+      "Home is a plain list of the apps you pick, plus a daily quote and the clock; the full drawer is one tap away with an A–Z index. Usage Insights shows screen time, an hourly chart, top distractions, per-app limits, and a focus score. The app is fully offline and doesn't request the INTERNET permission, so usage data never leaves the phone. Room keeps settings, Home apps, and limits on the device.",
     status: "live",
     links: [
       {
@@ -163,20 +164,18 @@ export const PRODUCTS: Product[] = [
     stack: ["C#", "WinUI 3", ".NET 8", "Windows App SDK", "SQLite"],
     built:
       "I wanted one Windows window instead of a pile of terminals for local-dev clutter. It parses package.json, Cargo.toml, pyproject.toml, requirements.txt, .csproj, and docker-compose; edits .env files with secret masking; maps ports to PIDs and can kill them; and talks to local Postgres / MySQL / Mongo / Redis. Service interfaces plus DI (project parse, processes, tasks, logs, versions, dependency audit).",
-    status: "github",
-    links: [
-      { label: "GitHub", href: "https://github.com/IamFishR/localdevenv" },
-    ],
+    status: "private",
+    links: [],
   },
   {
     slug: "webcrecorder",
     name: "webcrecorder",
     kind: "Web app",
     blurb:
-      "Browser recording studio — camera, mic, and screen with picture-in-picture. Recordings stay in a local gallery. Previous Vercel deploy is gone; GitHub is the source.",
+      "Browser recording studio: camera, mic, and screen with picture-in-picture. Recordings stay in a local gallery.",
     stack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Electron"],
     built:
-      "A recording studio in the browser (README: Lumina Capture) using camera, mic, and screen capture with a picture-in-picture overlay and a local gallery to rename, download, or delete takes. The repo also packages the same UI with electron-vite / electron-builder for a Windows desktop build. The old Vercel URL is gone.",
+      "A recording studio in the browser (README: Lumina Capture) using camera, mic, and screen capture with a picture-in-picture overlay and a local gallery to rename, download, or delete takes. The repo also packages the same UI with electron-vite / electron-builder for a Windows desktop build.",
     status: "github",
     links: [
       { label: "GitHub", href: "https://github.com/IamFishR/webcrecorder" },
@@ -199,9 +198,7 @@ export const PRODUCTS: Product[] = [
     built:
       "WIP hydration tracker: log intake, set a daily goal, ml or oz, reminders, dashboard charts, streaks, and export/backup. Clean Architecture (data / domain / presentation), Room for history, Hilt for injection, WorkManager and AlarmManager for reminders.",
     status: "wip",
-    links: [
-      { label: "GitHub", href: "https://github.com/IamFishR/waterintake" },
-    ],
+    links: [],
   },
   {
     slug: "mindfulminutes",

@@ -2,6 +2,7 @@ import { SITE } from "@/data/site";
 
 const nav = [
   { href: "/#work", label: "Work" },
+  { href: "/#experience", label: "Experience" },
   { href: "/#about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ];
