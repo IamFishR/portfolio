@@ -25,6 +25,8 @@ export type Product = {
   built: string;
   status: ProductStatus;
   links: ProductLink[];
+  /** Optional public store figures. Omit on cards that have none. */
+  stats?: string;
 };
 
 export const STATUS_LABEL: Record<ProductStatus, string> = {
@@ -157,15 +159,22 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "localdevenv",
-    name: "localdevenv",
+    name: "Local Dev Environment",
     kind: "Windows",
     blurb:
-      "WinUI 3 dashboard for local development: parse projects, run tasks, watch ports and processes, manage env files in one place.",
+      "WinUI 3 dashboard for local development: parse projects, run tasks, watch ports and processes, manage env files in one place. On the Microsoft Store.",
+    stats:
+      "Microsoft Store, as of 18 Oct 2026: about 1K page views · 18 installs · 1.28% page-to-install conversion · 100% install success",
     stack: ["C#", "WinUI 3", ".NET 8", "Windows App SDK", "SQLite"],
     built:
       "I wanted one Windows window instead of a pile of terminals for local-dev clutter. It parses package.json, Cargo.toml, pyproject.toml, requirements.txt, .csproj, and docker-compose; edits .env files with secret masking; maps ports to PIDs and can kill them; and talks to local Postgres / MySQL / Mongo / Redis. Service interfaces plus DI (project parse, processes, tasks, logs, versions, dependency audit).",
-    status: "private",
-    links: [],
+    status: "live",
+    links: [
+      {
+        label: "Microsoft Store",
+        href: "https://apps.microsoft.com/detail/9MZ7M3LBM8T5",
+      },
+    ],
   },
   {
     slug: "webcrecorder",

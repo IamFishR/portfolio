@@ -11,7 +11,7 @@ export const SITE = {
     "I build payment, lending and reporting interfaces at work, and QA automation and local-first tools on my own time.",
   about: [
     "UI Developer in Hyderabad with 5+ years on payment, lending, billing, and reporting interfaces, in JavaScript and React, from the first layout through production. I'm currently at LQpay / Liquid Payments.",
-    "On my own time I build tools I actually use. QA Studio Pro is a Chrome extension that records and replays browser flows and exports them to Playwright, and it's where most of my QA automation work happens. InFlow and MindfulWork are Android apps on Google Play. There are also Fitbit clock faces and a few smaller experiments. Each product below says where it stands: live, on GitHub, or still in progress.",
+    "On my own time I build tools I actually use. QA Studio Pro is a Chrome extension that records and replays browser flows and exports them to Playwright, and it's where most of my QA automation work happens. InFlow and MindfulWork are Android apps on Google Play, and Local Dev Environment is a Windows app on the Microsoft Store. There are also Fitbit clock faces and a few smaller experiments. Each product below says where it stands: live, on GitHub, or still in progress.",
   ],
   facts: [
     { label: "Role", value: "UI Developer · QA automation" },

@@ -43,6 +43,11 @@ export function ProductCard({
       <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
         {product.blurb}
       </p>
+      {product.stats ? (
+        <p className="mt-2 max-w-full text-pretty text-xs leading-relaxed text-[var(--muted)]">
+          {product.stats}
+        </p>
+      ) : null}
       <div className="mt-5">
         <p className="text-[11px] uppercase tracking-[0.16em] text-[var(--muted)]">
           Stack
@@ -73,7 +78,7 @@ export function ProductCard({
               <a
                 href={link.href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-sm text-[var(--foreground)] underline-offset-4 hover:text-[var(--accent)] hover:underline"
               >
                 {link.label}
